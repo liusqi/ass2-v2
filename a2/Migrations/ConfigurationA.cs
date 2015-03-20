@@ -10,7 +10,7 @@ namespace a2.Migrations
     {
         public ConfigurationA()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(a2.Models.LookupModel context)

@@ -14,9 +14,8 @@ namespace a2.Models
         // If you wish to target a different database and/or database provider, modify the 'LookupModel' 
         // connection string in the application configuration file.
         public LookupModel()
-            : base("name=LookupModel")
+            : base("name=LookupTables")
         {
-            Database.SetInitializer<LookupModel>( new DropCreateDatabaseAlways<LookupModel>() );
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 

@@ -55,4 +55,3 @@ W:\ASP\a2\a2\obj\Debug\a2.dll
 W:\ASP\a2\a2\obj\Debug\a2.pdb
 W:\ASP\a2\a2\obj\Debug\a2.Migrations.LookupInitial.resources
 W:\ASP\a2\a2\obj\Debug\a2.csproj.GenerateResource.Cache
-W:\ASP\a2\a2\obj\Debug\a2.Migrations.UsersInitial.resources

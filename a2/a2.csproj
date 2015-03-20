@@ -201,16 +201,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503192143049_LookupInitial.cs" />
-    <Compile Include="Migrations\201503192143049_LookupInitial.Designer.cs">
-      <DependentUpon>201503192143049_LookupInitial.cs</DependentUpon>
+    <Compile Include="Migrations\201503200004096_LookupInitial.cs" />
+    <Compile Include="Migrations\201503200004096_LookupInitial.Designer.cs">
+      <DependentUpon>201503200004096_LookupInitial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503192158576_UsersInitial.cs" />
-    <Compile Include="Migrations\201503192158576_UsersInitial.Designer.cs">
-      <DependentUpon>201503192158576_UsersInitial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ConfigurationA.cs" />
     <Compile Include="Migrations\ConfigurationB.cs" />
+    <Compile Include="Migrations\ConfigurationA.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LookupModel.cs" />
@@ -444,11 +440,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503192143049_LookupInitial.resx">
-      <DependentUpon>201503192143049_LookupInitial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503192158576_UsersInitial.resx">
-      <DependentUpon>201503192158576_UsersInitial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503200004096_LookupInitial.resx">
+      <DependentUpon>201503200004096_LookupInitial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
