@@ -22,7 +22,7 @@ namespace a2.Controllers.LookupControllers
         }
 
         // GET: RepeatClients/Details/5
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,7 +38,7 @@ namespace a2.Controllers.LookupControllers
         }
 
         // GET: RepeatClients/Create
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Create()
         {
             return View();
@@ -49,7 +49,7 @@ namespace a2.Controllers.LookupControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Create([Bind(Include = "id,value")] RepeatClient repeatClient)
         {
             if (ModelState.IsValid)
@@ -63,7 +63,7 @@ namespace a2.Controllers.LookupControllers
         }
 
         // GET: RepeatClients/Edit/5
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,7 +83,7 @@ namespace a2.Controllers.LookupControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Edit([Bind(Include = "id,value")] RepeatClient repeatClient)
         {
             if (ModelState.IsValid)
@@ -96,7 +96,7 @@ namespace a2.Controllers.LookupControllers
         }
 
         // GET: RepeatClients/Delete/5
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,7 +114,7 @@ namespace a2.Controllers.LookupControllers
         // POST: RepeatClients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult DeleteConfirmed(int id)
         {
             RepeatClient repeatClient = db.RepeatClients.Find(id);

@@ -22,7 +22,7 @@ namespace a2.Controllers.SmartLookupControllers
         }
 
         // GET: HospitalAttendeds/Details/5
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,7 +38,7 @@ namespace a2.Controllers.SmartLookupControllers
         }
 
         // GET: HospitalAttendeds/Create
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Create()
         {
             return View();
@@ -49,7 +49,7 @@ namespace a2.Controllers.SmartLookupControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Create([Bind(Include = "id,value")] HospitalAttended hospitalAttended)
         {
             if (ModelState.IsValid)
@@ -63,7 +63,7 @@ namespace a2.Controllers.SmartLookupControllers
         }
 
         // GET: HospitalAttendeds/Edit/5
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,7 +83,7 @@ namespace a2.Controllers.SmartLookupControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Edit([Bind(Include = "id,value")] HospitalAttended hospitalAttended)
         {
             if (ModelState.IsValid)
@@ -96,7 +96,7 @@ namespace a2.Controllers.SmartLookupControllers
         }
 
         // GET: HospitalAttendeds/Delete/5
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,7 +114,7 @@ namespace a2.Controllers.SmartLookupControllers
         // POST: HospitalAttendeds/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult DeleteConfirmed(int id)
         {
             HospitalAttended hospitalAttended = db.HospitalAttended.Find(id);

@@ -51,7 +51,9 @@ W:\ASP\a2\a2\bin\Microsoft.Owin.Security.Google.xml
 W:\ASP\a2\a2\bin\Microsoft.Owin.Security.Twitter.xml
 W:\ASP\a2\a2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 W:\ASP\a2\a2\obj\Debug\a2.csprojResolveAssemblyReference.cache
-W:\ASP\a2\a2\obj\Debug\a2.dll
-W:\ASP\a2\a2\obj\Debug\a2.pdb
 W:\ASP\a2\a2\obj\Debug\a2.Migrations.LookupInitial.resources
 W:\ASP\a2\a2\obj\Debug\a2.csproj.GenerateResource.Cache
+W:\ASP\a2\a2\obj\Debug\a2.dll
+W:\ASP\a2\a2\obj\Debug\a2.pdb
+W:\ASP\a2\a2\obj\Debug\a2.Migrations.SmartClient.resources
+W:\ASP\a2\a2\obj\Debug\a2.Migrations.SmartIntoClient.resources

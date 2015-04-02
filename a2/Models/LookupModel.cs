@@ -2,6 +2,7 @@ namespace a2.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity;
     using System.Linq;
 
@@ -22,6 +23,11 @@ namespace a2.Models
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
+        /* Client and Smart Entity */
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Smart> Smarts { get; set; }
+
+
         /* Client Entity Lookup Tables */
         public DbSet<FiscalYear> FiscalYears { get; set; }
         public DbSet<RiskLevel> RiskLevels { get; set; }
@@ -67,6 +73,77 @@ namespace a2.Models
     //    public int Id { get; set; }
     //    public string Name { get; set; }
     //}
+
+    public class Client
+    {
+        [Key]
+        [Column(Order = 0)]
+        public int id { get; set; }
+        public int Month { get; set; }
+        public int Day { get; set; }
+        public string Surname { get; set; }
+        public string FirstName { get; set; }
+        public string PoliceFileNum { get; set; }
+        public int CourtFileNum { get; set; }
+        public int SWCFileNum { get; set; }
+        public string RiskAssessmentAssigned { get; set; }
+        public string AbuserName { get; set; }
+        public char Gender { get; set; }
+        public int NumOfChildUnderSix { get; set; }
+        public int NumOfChildUnderTwelve { get; set; }
+        public int NumOfChildUnderEighteen { get; set; }
+        public DateTime DateLastTransferred { get; set; }
+        public DateTime DateClosed { get; set; }
+        public DateTime DateReopened { get; set; }
+
+
+        public FiscalYear FiscalYear { get; set; }
+        public RiskLevel RiskLevel { get; set; }
+        public Crisis Crisis { get; set; }
+        public Service Service { get; set; }
+        public Program Program { get; set; }
+        public RiskStatus RiskStatus { get; set; }
+        public AssignedWorker AssignedWorker { get; set; }
+        public ReferralSource ReferralSource { get; set; }
+        public ReferralContact ReferralContact { get; set; }
+        public Incident Incident { get; set; }
+        public AbuserRelationship AbuserRelationship { get; set; }
+        public VictimOfIncident VictimOfIncident { get; set; }
+        public FamilyViolenceFile FamilyViolenceFile { get; set; }
+        public Ethnicity Ethnicity { get; set; }
+        public Age Age { get; set; }
+        public RepeatClient RepeatClient { get; set; }
+        public DuplicateFile DuplicateFile { get; set; }
+        [ForeignKey("id")]
+        public Smart SmartData { get; set; }
+    }
+
+    /* Smart Entity */
+    public class Smart
+    {
+        [Key]
+        public int id { get; set; }
+        public int AccompanimentMinutes { get; set; }
+        public int NumberTransportsProvided { get; set; }
+        public bool ReferredToNursePractitioner { get; set; }
+        public SexWorkExploitation SexWorkExploitation { get; set; }
+        public MultiplePerpetrators MultiplePerpertrators { get; set; }
+        public DrugFacilitatedAssault DrugFacilitatedAssaults { get; set; }
+        public CityOfAssault CityOfAssault { get; set; }
+        public CityOfResidence CityOfResidence { get; set; }
+        public ReferringHospital ReferringHospital { get; set; }
+        public HospitalAttended HospitalAttended { get; set; }
+        public SocialWorkAttendance SocialWorkAttendance { get; set; }
+        public PoliceAttendance PoliceAttendance { get; set; }
+        public VictimServicesAttendance VictimServicesAttendance { get; set; }
+        public MedicalOnly MedicalOnly { get; set; }
+        public EvidenceStored EvidenceStored { get; set; }
+        public HIVMeds HIVMeds { get; set; }
+        public ReferredToCBVS ReferredToCBVS { get; set; }
+        public PoliceReported PoliceReported { get; set; }
+        public ThirdPartyReport ThirdPartyReport { get; set; }
+        public BadDateReport BadDateReport { get; set; }
+    }
 
     public class RiskLevel
     {
