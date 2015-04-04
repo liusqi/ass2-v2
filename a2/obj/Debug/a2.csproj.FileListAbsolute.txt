@@ -57,3 +57,6 @@ W:\ASP\a2\a2\obj\Debug\a2.dll
 W:\ASP\a2\a2\obj\Debug\a2.pdb
 W:\ASP\a2\a2\obj\Debug\a2.Migrations.SmartClient.resources
 W:\ASP\a2\a2\obj\Debug\a2.Migrations.SmartIntoClient.resources
+C:\Users\Songqi\Desktop\ass2-v2\a2\obj\Debug\a2.csprojResolveAssemblyReference.cache
+C:\Users\Songqi\Desktop\ass2-v2\a2\obj\Debug\a2.dll
+C:\Users\Songqi\Desktop\ass2-v2\a2\obj\Debug\a2.pdb
