@@ -1,6 +1,7 @@
 namespace a2.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity;
@@ -115,7 +116,7 @@ namespace a2.Models
         public RepeatClient RepeatClient { get; set; }
         public DuplicateFile DuplicateFile { get; set; }
         [ForeignKey("id")]
-        public Smart SmartData { get; set; }
+        public virtual Smart SmartData { get; set; }
     }
 
     /* Smart Entity */

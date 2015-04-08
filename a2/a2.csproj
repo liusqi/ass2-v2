@@ -197,6 +197,7 @@
     <Compile Include="Controllers\LookupControllers\ServicesController.cs" />
     <Compile Include="Controllers\LookupControllers\StatusOfFilesController.cs" />
     <Compile Include="Controllers\LookupControllers\VictimOfIncidentsController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\SmartLookupControllers\BadDateReportsController.cs" />
     <Compile Include="Controllers\SmartLookupControllers\CityOfAssaultsController.cs" />
     <Compile Include="Controllers\SmartLookupControllers\CityOfResidencesController.cs" />
@@ -466,13 +467,16 @@
     <Content Include="Views\Clients\Details.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
     <Content Include="Views\Smarts\Create.cshtml" />
     <Content Include="Views\Smarts\Delete.cshtml" />
     <Content Include="Views\Smarts\Details.cshtml" />
     <Content Include="Views\Smarts\Edit.cshtml" />
     <Content Include="Views\Smarts\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\Scripts\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

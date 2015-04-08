@@ -1,0 +1,35 @@
+﻿<script>
+    var baseUrl = 'https://api.mongolab.com/api/1/databases/sandbox/collections/client?apiKey=bup2ZBWGDC-IlRrpRsjTtJqiM_QKSmKa';
+
+    function GetAllFlintstones(target) {
+        jQuery.support.cors = true;
+        $.ajax({
+            url: baseUrl,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                WriteResponse(data, target);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+    function WriteResponse(people, target) {
+        var strResult = "<table style='background: #8A4B08'><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Occupation</th><th>Picture</th></tr>";
+        $.each(people, function (index, person) {
+            strResult += "<tr>\n";
+            strResult += "<td>" + ((person.PersonId !== undefined) ? person.PersonId : "") + "</td><td> " + person.FirstName + "</td><td>" + person.LastName + "</td><td>" + person.Occupation + "</td>";
+            strResult += "<td><img src='" + person.Picture + "' style='height: 90px' alt='" + person.FirstName + "' /></td>\n"
+            strResult += "</tr>\n";
+        });
+        strResult += "</table>\n";
+        $(target).html(strResult);
+    }
+
+
+</script>
+
+<div id="target">
+</div>

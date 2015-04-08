@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -15,19 +16,19 @@ namespace a2.Controllers
         private LookupModel db = new LookupModel();
 
         // GET: Smarts
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View(db.Smarts.ToList());
+            return View(await db.Smarts.ToListAsync());
         }
 
         // GET: Smarts/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Smart smart = db.Smarts.Find(id);
+            Smart smart = await db.Smarts.FindAsync(id);
             if (smart == null)
             {
                 return HttpNotFound();
@@ -35,11 +36,9 @@ namespace a2.Controllers
             return View(smart);
         }
 
-        [Authorize(Roles = "Administrator, Worker")]
         // GET: Smarts/Create
         public ActionResult Create()
         {
-            ViewBag.id = new SelectList(db.Clients, "id", "Surname");
             return View();
         }
 
@@ -48,34 +47,30 @@ namespace a2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Worker")]
-        public ActionResult Create([Bind(Include = "id,AccompanimentMinutes,NumberTransportsProvided,ReferredToNursePractitioner")] Smart smart)
+        public async Task<ActionResult> Create([Bind(Include = "id,AccompanimentMinutes,NumberTransportsProvided,ReferredToNursePractitioner")] Smart smart)
         {
             if (ModelState.IsValid)
             {
                 db.Smarts.Add(smart);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id = new SelectList(db.Clients, "id", "Surname", smart.id);
             return View(smart);
         }
 
         // GET: Smarts/Edit/5
-        [Authorize(Roles = "Administrator, Worker")]
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Smart smart = db.Smarts.Find(id);
+            Smart smart = await db.Smarts.FindAsync(id);
             if (smart == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.id = new SelectList(db.Clients, "id", "Surname", smart.id);
             return View(smart);
         }
 
@@ -84,28 +79,25 @@ namespace a2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Worker")]
-        public ActionResult Edit([Bind(Include = "id,AccompanimentMinutes,NumberTransportsProvided,ReferredToNursePractitioner")] Smart smart)
+        public async Task<ActionResult> Edit([Bind(Include = "id,AccompanimentMinutes,NumberTransportsProvided,ReferredToNursePractitioner")] Smart smart)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(smart).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.id = new SelectList(db.Clients, "id", "Surname", smart.id);
             return View(smart);
         }
 
         // GET: Smarts/Delete/5
-        [Authorize(Roles = "Administrator, Worker")]
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Smart smart = db.Smarts.Find(id);
+            Smart smart = await db.Smarts.FindAsync(id);
             if (smart == null)
             {
                 return HttpNotFound();
@@ -116,12 +108,11 @@ namespace a2.Controllers
         // POST: Smarts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Worker")]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Smart smart = db.Smarts.Find(id);
+            Smart smart = await db.Smarts.FindAsync(id);
             db.Smarts.Remove(smart);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 

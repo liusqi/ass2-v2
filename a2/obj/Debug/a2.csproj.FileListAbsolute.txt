@@ -109,7 +109,6 @@ C:\Users\Songqi\Desktop\ass2-v2\a2\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Songqi\Desktop\ass2-v2\a2\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Songqi\Desktop\ass2-v2\a2\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Songqi\Desktop\ass2-v2\a2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Songqi\Desktop\ass2-v2\a2\obj\Debug\a2.csprojResolveAssemblyReference.cache
 C:\Users\Songqi\Desktop\ass2-v2\a2\obj\Debug\a2.Migrations.LookupInitial.resources
 C:\Users\Songqi\Desktop\ass2-v2\a2\obj\Debug\a2.Migrations.SmartClient.resources
 C:\Users\Songqi\Desktop\ass2-v2\a2\obj\Debug\a2.Migrations.SmartIntoClient.resources
@@ -187,3 +186,4 @@ C:\Users\Songqi\Desktop\backup\a2\obj\Debug\a2.Migrations.SmartIntoClient.resour
 C:\Users\Songqi\Desktop\backup\a2\obj\Debug\a2.csproj.GenerateResource.Cache
 C:\Users\Songqi\Desktop\backup\a2\obj\Debug\a2.dll
 C:\Users\Songqi\Desktop\backup\a2\obj\Debug\a2.pdb
+C:\Users\Songqi\Desktop\ass2-v2\a2\obj\Debug\a2.csprojResolveAssemblyReference.cache
