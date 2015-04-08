@@ -92,9 +92,9 @@ namespace a2.Models
         public int NumOfChildUnderSix { get; set; }
         public int NumOfChildUnderTwelve { get; set; }
         public int NumOfChildUnderEighteen { get; set; }
-        public DateTime DateLastTransferred { get; set; }
-        public DateTime DateClosed { get; set; }
-        public DateTime DateReopened { get; set; }
+        public string DateLastTransferred { get; set; }
+        public string DateClosed { get; set; }
+        public string DateReopened { get; set; }
 
 
         public FiscalYear FiscalYear { get; set; }
