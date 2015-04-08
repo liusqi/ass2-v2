@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -16,20 +15,19 @@ namespace a2.Controllers
         private LookupModel db = new LookupModel();
 
         // GET: Clients
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var clients = db.Clients.Include(c => c.SmartData);
-            return View(await clients.ToListAsync());
+            return View(db.Clients.ToList());
         }
 
         // GET: Clients/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = await db.Clients.FindAsync(id);
+            Client client = db.Clients.Find(id);
             if (client == null)
             {
                 return HttpNotFound();
@@ -38,9 +36,9 @@ namespace a2.Controllers
         }
 
         // GET: Clients/Create
+        [Authorize(Roles = "Administrator, Worker")]
         public ActionResult Create()
         {
-            ViewBag.id = new SelectList(db.Smarts, "id", "id");
             return View();
         }
 
@@ -49,32 +47,32 @@ namespace a2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,Month,Day,Surname,FirstName,PoliceFileNum,CourtFileNum,SWCFileNum,RiskAssessmentAssigned,AbuserName,NumOfChildUnderSix,NumOfChildUnderTwelve,NumOfChildUnderEighteen,DateLastTransferred,DateClosed,DateReopened")] Client client)
+        [Authorize(Roles = "Administrator, Worker")]
+        public ActionResult Create([Bind(Include = "id,Month,Day,Surname,FirstName,PoliceFileNum,CourtFileNum,SWCFileNum,RiskAssessmentAssigned,AbuserName,NumOfChildUnderSix,NumOfChildUnderTwelve,NumOfChildUnderEighteen,DateLastTransferred,DateClosed,DateReopened")] Client client)
         {
             if (ModelState.IsValid)
             {
                 db.Clients.Add(client);
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id = new SelectList(db.Smarts, "id", "id", client.id);
             return View(client);
         }
 
         // GET: Clients/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        [Authorize(Roles = "Administrator, Worker")]
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = await db.Clients.FindAsync(id);
+            Client client = db.Clients.Find(id);
             if (client == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.id = new SelectList(db.Smarts, "id", "id", client.id);
             return View(client);
         }
 
@@ -83,26 +81,27 @@ namespace a2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "id,Month,Day,Surname,FirstName,PoliceFileNum,CourtFileNum,SWCFileNum,RiskAssessmentAssigned,AbuserName,NumOfChildUnderSix,NumOfChildUnderTwelve,NumOfChildUnderEighteen,DateLastTransferred,DateClosed,DateReopened")] Client client)
+        [Authorize(Roles = "Administrator, Worker")]
+        public ActionResult Edit([Bind(Include = "id,Month,Day,Surname,FirstName,PoliceFileNum,CourtFileNum,SWCFileNum,RiskAssessmentAssigned,AbuserName,NumOfChildUnderSix,NumOfChildUnderTwelve,NumOfChildUnderEighteen,DateLastTransferred,DateClosed,DateReopened")] Client client)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(client).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id = new SelectList(db.Smarts, "id", "id", client.id);
             return View(client);
         }
 
         // GET: Clients/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        [Authorize(Roles = "Administrator, Worker")]
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = await db.Clients.FindAsync(id);
+            Client client = db.Clients.Find(id);
             if (client == null)
             {
                 return HttpNotFound();
@@ -113,11 +112,12 @@ namespace a2.Controllers
         // POST: Clients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        [Authorize(Roles = "Administrator, Worker")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            Client client = await db.Clients.FindAsync(id);
+            Client client = db.Clients.Find(id);
             db.Clients.Remove(client);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

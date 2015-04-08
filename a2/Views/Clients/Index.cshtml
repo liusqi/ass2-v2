@@ -12,9 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SmartData.id)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Month)
         </th>
         <th>
@@ -64,9 +61,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SmartData.id)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Month)
         </td>
