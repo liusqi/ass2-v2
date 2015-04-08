@@ -461,16 +461,16 @@
     <Content Include="Views\Admin\Suspend.cshtml" />
     <Content Include="Views\Admin\Unsuspend.cshtml" />
     <Content Include="Views\Admin\Users.cshtml" />
-    <Content Include="Views\Clients\Create.cshtml" />
-    <Content Include="Views\Clients\Delete.cshtml" />
-    <Content Include="Views\Clients\Details.cshtml" />
-    <Content Include="Views\Clients\Edit.cshtml" />
-    <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Smarts\Create.cshtml" />
     <Content Include="Views\Smarts\Delete.cshtml" />
     <Content Include="Views\Smarts\Details.cshtml" />
     <Content Include="Views\Smarts\Edit.cshtml" />
     <Content Include="Views\Smarts\Index.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
